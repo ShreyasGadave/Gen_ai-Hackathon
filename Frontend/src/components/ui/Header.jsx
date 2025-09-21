@@ -145,7 +145,7 @@ const Header = () => {
               ) : (<AiOutlineEye className='w-5 h-5' />)}
             </button>
           </div>
-          <button type='submit' className=' w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 rounded-lg hover:bg-gradient-to-l
+          <button onClick={()=>{setshowLoginForm(false)}} type='submit' className=' w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 rounded-lg hover:bg-gradient-to-l
            hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 focus:ring focus:ring-cyan-300
             focus:outline-none shadow-md hover:shadow-lg'>
             Login

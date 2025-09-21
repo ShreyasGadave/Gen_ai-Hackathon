@@ -5,6 +5,7 @@ import { useEffect} from 'react'
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { handleGoogleLogin , handleSubmit } from '../../config';
+import { SignIn } from "../../config";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -12,12 +13,20 @@ const Header = () => {
     const [formVisible, setFormVisible] = useState(false);
     const [error, setError] = useState('');
     const [passwordVisible, setPasswordVisible] = useState(false);
+    const [userName, setuserName] = useState("");
+    const [email, setemail] = useState("")
   
     useEffect(() => { 
       setTimeout(() => {
         setFormVisible(true);
       }, 100)
     }, []);
+
+      const handleSignIn = (e) => {
+    e.preventDefault();
+    SignIn(email, password);
+  };
+
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -128,7 +137,7 @@ const Header = () => {
 
         {error && <p className='text-red-500 text-center mb-4'>{error}</p>}
 
-        <form onSubmit={(e) => handleSubmit(e, setError)} className=' space-y-6'>
+        <form onSubmit={ handleSignIn } className=' space-y-6'>
           <div>
             <label htmlFor="email" className=' block text-gray-300 font-medium mb-1'>Email Address</label>
             <input required type="email" name='email' id='email' placeholder='Enter Your Email' className='w-full border-b
